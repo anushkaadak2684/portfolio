@@ -276,7 +276,7 @@ export default function Contact() {
                   </div>
                   <h3 className={styles.successTitle}>Message Sent!</h3>
                   <p className={styles.successText}>
-                    Thanks for reaching out. I&apos;ll get back to you shortly — looking
+                    Thanks for reaching out. I&apos;ll get back to you shortly — looking
                     forward to connecting!
                   </p>
                   <button
