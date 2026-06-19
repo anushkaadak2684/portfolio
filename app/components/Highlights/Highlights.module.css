@@ -1,0 +1,270 @@
+/* ====================================================
+   SECTION 2 Ã¢â‚¬â€ HIGHLIGHTS
+   Pure Black Background, Borderless Metric Cards
+   ==================================================== */
+
+.highlights {
+  position: relative;
+  background: var(--bg-primary);
+  /* #000000 Ã¢â‚¬â€ Pure Black */
+  padding: 64px 0 80px;
+  overflow: hidden;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ AMBIENT DIVIDERS Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.topGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(59, 130, 246, 0.3) 30%,
+      rgba(139, 92, 246, 0.3) 70%,
+      transparent 100%);
+}
+
+.bottomGlow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.06) 50%,
+      transparent 100%);
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ INNER LAYOUT Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ SECTION LABEL Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.labelLine {
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12));
+}
+
+.labelLine:last-child {
+  background: linear-gradient(270deg, transparent, rgba(255, 255, 255, 0.12));
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ METRICS GRID Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ METRIC CARD (Borderless) Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.card {
+  position: relative;
+  background: transparent;
+  border-radius: 0;
+  overflow: hidden;
+  cursor: default;
+  transition: background var(--transition-med);
+}
+
+/* .card:hover {
+  background: rgba(255, 255, 255, 0.02);
+} */
+
+.cardInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 40px 36px 44px;
+  position: relative;
+  height: 100%;
+}
+
+/* Subtle card separator lines */
+.card:not(:nth-child(4n)) .cardInner::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ ICON Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.iconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  transition: transform var(--transition-med);
+}
+
+.card:hover .iconWrap {
+  transform: translateY(-3px);
+}
+
+.iconWrap svg {
+  width: 22px;
+  height: 22px;
+}
+
+.icon-blue {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--accent-blue);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.1);
+}
+
+.icon-purple {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--accent-purple);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.1);
+}
+
+.icon-cyan {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--accent-cyan);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.1);
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ VALUE Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.value {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1;
+  transition: color var(--transition-med);
+}
+
+.accent-blue:hover .value {
+  color: var(--accent-blue);
+}
+
+.accent-purple:hover .value {
+  color: var(--accent-purple);
+}
+
+.accent-cyan:hover .value {
+  color: var(--accent-cyan);
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ LABEL Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.labelText {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ SUBLABEL Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.sublabel {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ HOVER BOTTOM LINE Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.hoverLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .hoverLine {
+  transform: scaleX(1);
+}
+
+.line-blue {
+  background: linear-gradient(90deg, var(--accent-blue), transparent);
+}
+
+.line-purple {
+  background: linear-gradient(90deg, var(--accent-purple), transparent);
+}
+
+.line-cyan {
+  background: linear-gradient(90deg, var(--accent-cyan), transparent);
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ RESPONSIVE Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card:nth-child(3n) .cardInner::after {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .highlights {
+    padding: 48px 0 60px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+  }
+
+  .cardInner {
+    padding: 28px 24px 32px;
+  }
+
+  /* Remove right separators on mobile */
+  .card .cardInner::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cardInner {
+    padding: 24px 18px 28px;
+    gap: 8px;
+  }
+
+  .value {
+    font-size: 1.8rem;
+  }
+}

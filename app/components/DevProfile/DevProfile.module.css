@@ -1,0 +1,394 @@
+/* ====================================================
+   SECTION 6 Ã¢â‚¬â€ DEVELOPER PROFILE
+   Pure Black, Dashboard Grid (GitHub + Linear Inspired)
+   ==================================================== */
+
+.section {
+  position: relative;
+  background: var(--bg-primary);
+  padding: 72px 0 88px;
+  overflow: hidden;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ SKELETON SHIMMER Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: transparent !important;
+  border-radius: 6px;
+  -webkit-text-fill-color: transparent !important;
+  pointer-events: none;
+  user-select: none;
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.07) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.contribLoading {
+  opacity: 0.3;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ HEADER Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 640px;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+}
+
+.heading {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.subheading {
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ DASHBOARD GRID Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ PANEL BASE Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.panel {
+  background: var(--bg-card);
+  border: var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  transition: border-color var(--transition-med), box-shadow var(--transition-med);
+}
+
+.panel:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ PANEL HEADER Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.panelHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.panelIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.panelTitle {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.panelLink {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition: color var(--transition-fast);
+}
+
+.panelLink:hover { color: var(--accent-blue); }
+
+.liveTag {
+  margin-left: auto;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--accent-blue);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ GITHUB STATS ROW Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.ghStats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.ghStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 12px;
+  background: var(--bg-card);
+  transition: background var(--transition-fast);
+}
+
+.ghStat:hover { background: rgba(255, 255, 255, 0.03); }
+
+.ghStatValue {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.ghStatLabel {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-align: center;
+  font-family: var(--font-body);
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ CONTRIBUTION GRAPH Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.contribSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contribLabel {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.contribGrid {
+  display: grid;
+  grid-template-columns: repeat(26, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-auto-flow: column;
+  gap: 3px;
+}
+
+.contribCell {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.contribCell:hover { transform: scale(1.3); }
+
+.level0 { background: rgba(255,255,255,0.04); }
+.level1 { background: rgba(59,130,246,0.2);  }
+.level2 { background: rgba(59,130,246,0.42); }
+.level3 { background: rgba(59,130,246,0.65); }
+.level4 { background: rgba(59,130,246,0.90); }
+
+.contribLegend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: flex-end;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+}
+
+.contribLegend .contribCell {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ LEETCODE PANEL Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.lcTotal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 24px 0 8px;
+  text-align: center;
+}
+
+.lcTotalValue {
+  font-family: var(--font-heading);
+  font-size: 3.8rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.lcTotalLabel {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* Difficulty breakdown */
+.diffBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.diffRow {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.diffMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.diffBadge {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid;
+}
+
+.diffCount {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.diffBarBg {
+  height: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.diffBarFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.85;
+}
+
+/* Language chips */
+.langSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.langLabel {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.langChips {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.langChip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.langChip:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+.langName {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.langCount {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--accent-purple);
+  font-weight: 500;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ RESPONSIVE Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+@media (max-width: 1024px) {
+  .dashboard { grid-template-columns: 1fr; }
+  .ghStats   { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .section { padding: 48px 0 60px; }
+  .panel   { padding: 24px; gap: 24px; }
+  .ghStats { grid-template-columns: repeat(2, 1fr); }
+  .lcTotalValue { font-size: 3rem; }
+}

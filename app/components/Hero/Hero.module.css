@@ -1,0 +1,460 @@
+/* ====================================================
+   HERO SECTION Ã¢â‚¬â€ Asymmetric Split Screen
+   ==================================================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 64px 0 48px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ AMBIENT ORBS Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.orbLeft {
+  position: absolute;
+  top: 10%;
+  left: -20%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.12) 0%, transparent 65%);
+  pointer-events: none;
+  animation: driftLeft 12s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.orbRight {
+  position: absolute;
+  top: 30%;
+  right: -15%;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.10) 0%, transparent 65%);
+  pointer-events: none;
+  animation: driftRight 15s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes driftLeft {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(60px, 40px) scale(1.08);
+  }
+}
+
+@keyframes driftRight {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(-50px, -30px) scale(1.06);
+  }
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ INNER LAYOUT Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ LEFT COLUMN Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Status tag */
+.statusTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: var(--radius-full);
+  padding: 6px 16px;
+  width: fit-content;
+  letter-spacing: 0.03em;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.25);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Name */
+.name {
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+/* Title */
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  margin: -8px 0 0;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 520px;
+  margin: 0;
+}
+
+/* CTA Row */
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ctaBtn {
+  font-size: 0.95rem;
+  padding: 13px 30px;
+}
+
+.outlineBtn {
+  font-size: 0.95rem;
+  padding: 12px 28px;
+}
+
+/* Badges */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  transition: all var(--transition-fast);
+  cursor: default;
+}
+
+.badge:hover {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.25);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ RIGHT COLUMN Ã¢â‚¬â€ Profile Card Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.cardWrapper {
+  position: relative;
+  width: 340px;
+  height: 420px;
+}
+
+/* Ambient back glow */
+.profileGlow {
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(ellipse at center,
+      rgba(139, 92, 246, 0.22) 0%,
+      rgba(59, 130, 246, 0.12) 45%,
+      transparent 70%);
+  border-radius: 50%;
+  animation: glowPulse 4s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(20px);
+}
+
+@keyframes glowPulse {
+  from {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Profile card */
+.profileCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  z-index: 1;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.profileCard:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow:
+    0 24px 60px rgba(59, 130, 246, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient ring overlay */
+.profileRing {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(145deg,
+      rgba(59, 130, 246, 0.15) 0%,
+      transparent 50%,
+      rgba(139, 92, 246, 0.1) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.profileImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.profileImage {
+  object-fit: cover;
+  object-position: top center;
+  filter: contrast(1.08) brightness(0.94) grayscale(0.15);
+  transition: filter var(--transition-med);
+}
+
+.profileCard:hover .profileImage {
+  filter: contrast(1.12) brightness(0.98) grayscale(0);
+}
+
+/* Floating chips */
+.floatingChipTop,
+.floatingChipBottom {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  z-index: 10;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.floatingChipTop {
+  top: -16px;
+  right: -20px;
+  animation: floatChipTop 4s ease-in-out infinite;
+}
+
+.floatingChipBottom {
+  bottom: -16px;
+  left: -20px;
+  animation: floatChipBottom 5s ease-in-out infinite;
+}
+
+@keyframes floatChipTop {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floatChipBottom {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.chipDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px currentColor;
+}
+
+/* ——— SCROLL CUE ——— */
+.scrollCue {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  animation: fadeInScroll 0.8s ease 2s forwards;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.35));
+  animation: scrollDrop 2s ease-in-out infinite 2.8s;
+}
+
+.scrollCue span {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+@keyframes scrollDrop {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scaleY(0.6);
+    transform-origin: top;
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+@keyframes fadeInScroll {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* ——— RESPONSIVE ——— */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .left {
+    align-items: center;
+  }
+
+  .subtitle {
+    max-width: 100%;
+  }
+
+  .right {
+    order: -1;
+  }
+
+  .cardWrapper {
+    width: 280px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 100px 0 60px;
+  }
+
+  .ctaRow {
+    justify-content: center;
+  }
+
+  .badges {
+    justify-content: center;
+  }
+
+  .cardWrapper {
+    width: 240px;
+    height: 300px;
+  }
+
+  .floatingChipTop {
+    right: -8px;
+  }
+
+  .floatingChipBottom {
+    left: -8px;
+  }
+}

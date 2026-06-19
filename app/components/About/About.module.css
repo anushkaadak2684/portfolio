@@ -1,0 +1,342 @@
+/* ====================================================
+   SECTION 3 Ã¢â‚¬â€ ABOUT + TECH ECOSYSTEM
+   Secondary Surface: #0A0A0C Ã¢â‚¬â€ Deep Matte
+   ==================================================== */
+
+.about {
+  position: relative;
+  background: var(--bg-secondary);
+  /* #0A0A0C */
+  padding: 72px 0 88px;
+  overflow: hidden;
+}
+
+/* Subtle grid texture */
+.bgTexture {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ INNER LAYOUT Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ SECTION HEADER Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+}
+
+.heading {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  max-width: 600px;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ SPLIT LAYOUT Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 150px;
+  align-items: start;
+}
+
+/* ======================================
+   LEFT Ã¢â‚¬â€ NARRATIVE
+   ====================================== */
+.narrative {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* Bio paragraphs */
+.bioParagraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bioPrimary {
+  font-size: clamp(1.05rem, 1.6vw, 1.15rem);
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.bioPrimary strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.bioSecondary {
+  font-size: clamp(0.95rem, 1.4vw, 1.02rem);
+  color: var(--text-secondary);
+  line-height: 1.85;
+}
+
+.bioSecondary strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Highlight list */
+.highlightList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all var(--transition-med);
+  cursor: default;
+}
+
+.highlightItem:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+}
+
+.highlightIcon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.highlightText {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 3px;
+}
+
+.highlightSub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ======================================
+   RIGHT Ã¢â‚¬â€ TECH ECOSYSTEM
+   ====================================== */
+.ecosystem {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.ecosystemHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ecosystemTitle {
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.ecosystemSubtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ CATEGORY GROUPS Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.categoryGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: opacity var(--transition-med);
+}
+
+.dimmed {
+  opacity: 0.3;
+}
+
+/* Category label / toggle button */
+.categoryLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  width: fit-content;
+}
+
+.categoryLabel:hover {
+  color: var(--text-secondary);
+}
+
+.categoryActive {
+  color: var(--text-primary) !important;
+}
+
+.categoryDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: currentColor;
+  transition: box-shadow var(--transition-med);
+}
+
+.categoryActive .categoryDot {
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* Accent colors for category labels */
+.accent-blue {
+  color: var(--accent-blue);
+}
+
+.accent-purple {
+  color: var(--accent-purple);
+}
+
+.accent-cyan {
+  color: var(--accent-cyan);
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ CHIP ROW Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ CHIP Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+.chip {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  cursor: default;
+  white-space: nowrap;
+}
+
+/* Chip hover per accent */
+.chip-blue:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--accent-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.10);
+}
+
+.chip-purple:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--accent-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.10);
+}
+
+.chip-cyan:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.10);
+}
+
+/* When category is active, highlight all its chips */
+.categoryGroup:not(.dimmed) .chip {
+  opacity: 1;
+}
+
+/* Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ RESPONSIVE Ã¢â‚¬â€Ã¢â‚¬â€Ã¢â‚¬â€ */
+@media (max-width: 1024px) {
+  .split {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 100px 0 120px;
+  }
+
+  .inner {
+    gap: 60px;
+  }
+
+  .chipRow {
+    gap: 6px;
+  }
+
+  .chip {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 48px 0 60px;
+  }
+
+  .highlightItem {
+    padding: 12px 16px;
+  }
+}
